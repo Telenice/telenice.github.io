@@ -12,22 +12,13 @@
         
         h1 {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 20px;
             color: #333;
         }
 
-        .calculator-container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
         .input-container {
-            margin-bottom: 20px;
             text-align: center;
+            margin-top: 10px;
         }
 
         label {
@@ -37,22 +28,22 @@
         }
 
         input[type="number"] {
-            width: calc(100% - 16px);
             padding: 8px;
+            border-radius: 5px;
             border: 1px solid #ccc;
-            border-radius: 4px;
         }
 
         button {
-            width: 100%;
-            padding: 10px;
+            padding: 10px 20px;
             background-color: #51c28b;
             color: #fff;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
             margin-top: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         button:hover {
@@ -61,55 +52,42 @@
 
         #output {
             margin-top: 20px;
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-radius: 4px;
-            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         #output p {
-            margin: 0 0 10px;
+            margin: 0;
             padding: 0;
         }
 
         #output .total {
             font-weight: bold;
-            color: #333;
+            margin-top: 10px;
         }
 
         .return-button {
             text-align: center;
             margin-top: 20px;
         }
-
-        .return-button button {
-            background-color: #51c28b;
-            color: #fff;
-            border-radius: 4px;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .return-button button:hover {
-            background-color: #3f9169;
-        }
     </style>
 </head>
 <body>
     <h1>Stage 3 Calculator - 1:1 ratio</h1>
-    <div class="calculator-container">
-        <div class="input-container">
-            <label for="cocaineExtract">Enter the number of cocaine chemical extract:</label>
-            <input type="number" id="cocaineExtract" name="cocaineExtract" min="5" step="5">
-        </div>
-        <button id="calculator">Calculate</button>
-        <div id="output"></div>
-        
-        <div class="return-button">
-            <button id="return">Return</button>
-        </div>
+    <div class="input-container">
+        <label for="cocaineExtract">Enter the number of cocaine chemical extract:</label>
+        <input type="number" id="cocaineExtract" name="cocaineExtract" min="5" step="5">
+    </div>
+    <button id="calculator">Calculate</button>
+    <div id="output"></div>
+
+    <div class="return-button">
+        <button id="return">Return</button>
     </div>
 
     <script>
@@ -127,21 +105,21 @@
 
         function calculate() {
             const cocaineExtract = document.getElementById('cocaineExtract').value;
-            let output = '';
-            let totalWeight = 0;
-            let totalCost = 0;
-            for (const [item, data] of Object.entries(items)) {
-                const quantity = data.ratio * (cocaineExtract * 1);
-                const weight = quantity * data.weight;
-                const cost = quantity * data.price;
-                totalWeight += weight;
-                totalCost += cost;
-                output += `${item}: ${quantity} items, ${weight.toFixed(2)} kg, £${cost.toFixed(2)}<br>`;
+                let output = '';
+                let totalWeight = 0;
+                let totalCost = 0;
+                for (const [item, data] of Object.entries(items)) {
+                    const quantity = data.ratio * (cocaineExtract * 1);
+                    const weight = quantity * data.weight;
+                    const cost = quantity * data.price;
+                    totalWeight += weight;
+                    totalCost += cost;
+                    output += `${item}: ${quantity} items, ${weight.toFixed(2)} kg, £${cost.toFixed(2)}<br>`;
+                }
+                output += `</p><p class="total">Total weight: ${totalWeight.toFixed(2)} kg<br>`;
+                output += `Total cost: £${totalCost.toFixed(2)}</p>`;
+                document.getElementById('output').innerHTML = output;
             }
-            output += `</p><p class="total">Total weight: ${totalWeight.toFixed(2)} kg<br>`;
-            output += `Total cost: £${totalCost.toFixed(2)}</p>`;
-            document.getElementById('output').innerHTML = output;
-        }
     </script>
 </body>
 </html>
