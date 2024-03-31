@@ -3,30 +3,50 @@
 <head>
     <title>Redirect Page</title>
     <style>
-        body { font-family: Arial, sans-serif; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <h1>Redirect Page</h1>
     <button id="stage1">Stage 1</button>
+    <button id="stage2">Stage 2</button>
+    <button id="stage3">Stage 3</button>
 
     <script>
         document.getElementById('stage1').addEventListener('click', function() {
             window.location.href = 'stage1.html';
         });
-    </script>
-    <br>
-    <br>
-    <button id="stage2">Stage 2</button>
-    <script>
+
         document.getElementById('stage2').addEventListener('click', function() {
             window.location.href = 'stage2.html';
         });
-    </script>
-    <br>
-    <br>
-    <button id="stage3">Stage 3</button>
-    <script>
+
         document.getElementById('stage3').addEventListener('click', function() {
             window.location.href = 'stage3.html';
         });
