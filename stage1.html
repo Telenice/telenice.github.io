@@ -5,20 +5,29 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f2f2f2;
             margin: 0;
             padding: 0;
         }
         
         h1 {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
             color: #333;
         }
 
+        .calculator-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
         .input-container {
+            margin-bottom: 20px;
             text-align: center;
-            margin-top: 10px;
         }
 
         label {
@@ -28,22 +37,22 @@
         }
 
         input[type="number"] {
+            width: calc(100% - 16px);
             padding: 8px;
-            border-radius: 5px;
             border: 1px solid #ccc;
+            border-radius: 4px;
         }
 
         button {
-            padding: 10px 20px;
+            width: 100%;
+            padding: 10px;
             background-color: #51c28b;
             color: #fff;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
             margin-top: 10px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         button:hover {
@@ -52,47 +61,60 @@
 
         #output {
             margin-top: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            border: 1px solid #ccc;
         }
 
         #output p {
-            margin: 0;
+            margin: 0 0 10px;
             padding: 0;
         }
 
         #output .total {
             font-weight: bold;
-            margin-top: 10px;
+            color: #333;
         }
 
         .return-button {
             text-align: center;
             margin-top: 20px;
         }
+
+        .return-button button {
+            background-color: #51c28b;
+            color: #fff;
+            border-radius: 4px;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .return-button button:hover {
+            background-color: #3f9169;
+        }
     </style>
 </head>
 <body>
     <h1>Stage 1 Calculator - 5:1 ratio</h1>
-    <div class="input-container">
-        <label for="cokeLeaves">Enter the number of coke leaves (minimum 5, in multiples of 5):</label>
-        <input type="number" id="cokeLeaves" name="cokeLeaves" min="5" step="5">
-    </div>
-    <button id="calculator">Calculate</button>
-    <div id="output"></div>
-    
-    <div class="return-button">
-        <button id="return">Return</button>
+    <div class="calculator-container">
+        <div class="input-container">
+            <label for="cokeLeaves">Enter the number of coke leaves (minimum 5, in multiples of 5):</label>
+            <input type="number" id="cokeLeaves" name="cokeLeaves" min="5" step="5">
+        </div>
+        <button id="calculator">Calculate</button>
+        <div id="output"></div>
+        
+        <div class="return-button">
+            <button id="return">Return</button>
+        </div>
     </div>
 
     <script>
         const items = {
-            "Plant fertiliser": { "ratio": 5, "weight": 1, "price": 100 },
+            "Plant fertiliser": { "ratio": 5, "weight": 1, "price": 10 },
             "Bag of salt": { "ratio": 3, "weight": 0.25, "price": 10 },
             "Bandages": { "ratio": 2, "weight": 0.005, "price": 10 },
             "Thionyl Chloride": { "ratio": 4, "weight": 0.6, "price": 10 },
