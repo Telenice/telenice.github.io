@@ -16,9 +16,14 @@
             color: #333;
         }
 
+        .input-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
         label {
             display: block;
-            margin-top: 10px;
+            margin-bottom: 5px;
             color: #555;
         }
 
@@ -69,8 +74,10 @@
 </head>
 <body>
     <h1>Stage 1 Calculator - 5:1 ratio</h1>
-    <label for="cokeLeaves">Enter the number of coke leaves (minimum 5, in multiples of 5):</label>
-    <input type="number" id="cokeLeaves" name="cokeLeaves" min="5" step="5">
+    <div class="input-container">
+        <label for="cokeLeaves">Enter the number of coke leaves (minimum 5, in multiples of 5):</label>
+        <input type="number" id="cokeLeaves" name="cokeLeaves" min="5" step="5">
+    </div>
     <button id="calculator">Calculate</button>
     <div id="output"></div>
 
