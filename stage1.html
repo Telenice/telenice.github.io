@@ -3,8 +3,68 @@
 <head>
     <title>Stage 1 Calculator - 5:1 ratio</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        #output { margin-top: 20px; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #output p {
+            margin: 0;
+            padding: 0;
+        }
+
+        #output .total {
+            font-weight: bold;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -30,7 +90,7 @@
             if (cokeLeaves < 5 || cokeLeaves % 5 !== 0) {
                 alert("Invalid input. Please enter a number that is a multiple of 5 and not less than 5.");
             } else {
-                let output = '';
+                let output = '<p>';
                 let totalWeight = 0;
                 let totalCost = 0;
                 for (const [item, data] of Object.entries(items)) {
@@ -41,8 +101,8 @@
                     totalCost += cost;
                     output += `${item}: ${quantity} items, ${weight.toFixed(2)} kg, £${cost.toFixed(2)}<br>`;
                 }
-                output += `Total weight: ${totalWeight.toFixed(2)} kg<br>`;
-                output += `Total cost: £${totalCost.toFixed(2)}`;
+                output += `</p><p class="total">Total weight: ${totalWeight.toFixed(2)} kg<br>`;
+                output += `Total cost: £${totalCost.toFixed(2)}</p>`;
                 document.getElementById('output').innerHTML = output;
             }
         }
