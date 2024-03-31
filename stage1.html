@@ -70,6 +70,11 @@
             font-weight: bold;
             margin-top: 10px;
         }
+
+        .return-button {
+            text-align: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -80,6 +85,10 @@
     </div>
     <button id="calculator">Calculate</button>
     <div id="output"></div>
+    
+    <div class="return-button">
+        <button id="return">Return</button>
+    </div>
 
     <script>
         const items = {
@@ -91,6 +100,9 @@
         };
 
         document.getElementById('calculator').addEventListener('click', calculate);
+        document.getElementById('return').addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
 
         function calculate() {
             const cokeLeaves = document.getElementById('cokeLeaves').value;
