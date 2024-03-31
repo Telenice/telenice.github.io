@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stage 1 Calculator - 5:1 ratio</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #output { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Stage 1 Calculator - 5:1 ratio</h1>
+    <label for="cokeLeaves">Enter the number of coke leaves (minimum 5, in multiples of 5):</label>
+    <input type="number" id="cokeLeaves" name="cokeLeaves" min="5" step="5">
+    <button id="calculator">Calculate</button>
+    <div id="output"></div>
+
+    <script>
+        const items = {
+            "Plant fertiliser": { "ratio": 5, "weight": 1, "price": 100 },
+            "Bag of salt": { "ratio": 3, "weight": 0.25, "price": 10 },
+            "Bandages": { "ratio": 2, "weight": 0.005, "price": 10 },
+            "Thionyl Chloride": { "ratio": 4, "weight": 0.6, "price": 10 },
+            "Some Acid": { "ratio": 1, "weight": 0.25, "price": 10 }
+        };
+
+        document.getElementById('calculator').addEventListener('click', calculate);
+
+        function calculate() {
+            const cokeLeaves = document.getElementById('cokeLeaves').value;
+            if (cokeLeaves < 5 || cokeLeaves % 5 !== 0) {
+                alert("Invalid input. Please enter a number that is a multiple of 5 and not less than 5.");
+            } else {
+                let output = '';
+                let totalWeight = 0;
+                let totalCost = 0;
+                for (const [item, data] of Object.entries(items)) {
+                    const quantity = data.ratio * (cokeLeaves / 5);
+                    const weight = quantity * data.weight;
+                    const cost = quantity * data.price;
+                    totalWeight += weight;
+                    totalCost += cost;
+                    output += `${item}: ${quantity} items, ${weight.toFixed(2)} kg, £${cost.toFixed(2)}<br>`;
+                }
+                output += `Total weight: ${totalWeight.toFixed(2)} kg<br>`;
+                output += `Total cost: £${totalCost.toFixed(2)}`;
+                document.getElementById('output').innerHTML = output;
+            }
+        }
+    </script>
+</body>
+</html>

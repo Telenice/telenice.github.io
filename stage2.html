@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stage 2 Calculator - 1:1 ratio</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #output { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Stage 2 Calculator - 1:1 ratio</h1>
+    <label for="cocainePaste">Enter the number of cocaine leaf paste:</label>
+    <input type="number" id="cocainePaste" name="cocainePaste" min="5" step="5">
+    <button id="calculator">Calculate</button>
+    <div id="output"></div>
+
+    <script>
+        const items = {
+            "Cocaine Leaf Paste": { "ratio": 1, "weight": 0.25, "price": 0 },
+            "Cement": { "ratio": 1, "weight": 0.25, "price": 15 },
+            "Jerry Can": { "ratio": 1, "weight": 2, "price": 250 },
+            "Thionyl Chloride": { "ratio": 2, "weight": 0.6, "price": 10 },
+            "Plant Fertiliser": { "ratio": 2, "weight": 1, "price": 100 },
+            "Bandages": { "ratio": 2, "weight": 0.005, "price": 10 },
+        };
+
+        document.getElementById('calculator').addEventListener('click', calculate);
+
+        function calculate() {
+            const cocainePaste = document.getElementById('cocainePaste').value;
+                let output = '';
+                let totalWeight = 0;
+                let totalCost = 0;
+                for (const [item, data] of Object.entries(items)) {
+                    const quantity = data.ratio * (cocainePaste * 1);
+                    const weight = quantity * data.weight;
+                    const cost = quantity * data.price;
+                    totalWeight += weight;
+                    totalCost += cost;
+                    output += `${item}: ${quantity} items, ${weight.toFixed(2)} kg, £${cost.toFixed(2)}<br>`;
+                }
+                output += `Total weight: ${totalWeight.toFixed(2)} kg<br>`;
+                output += `Total cost: £${totalCost.toFixed(2)}`;
+                document.getElementById('output').innerHTML = output;
+            }
+    </script>
+</body>
+</html>

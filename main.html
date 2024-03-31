@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirect Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+    </style>
+</head>
+<body>
+    <h1>Redirect Page</h1>
+    <button id="stage1">Stage 1</button>
+
+    <script>
+        document.getElementById('stage1').addEventListener('click', function() {
+            window.location.href = 'stage1.html';
+        });
+    </script>
+    <br>
+    <br>
+    <button id="stage2">Stage 2</button>
+
+    <script>
+        document.getElementById('stage2').addEventListener('click', function() {
+            window.location.href = 'stage2.html';
+        });
+    </script>
+</body>
+</html>
