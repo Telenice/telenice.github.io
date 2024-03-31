@@ -118,7 +118,7 @@
                     totalCost += cost;
                     output += `${item}: ${quantity} items, ${weight.toFixed(2)} kg, £${cost.toFixed(2)}<br>`;
                 }
-                output += `Total weight: ${totalWeight.toFixed(2)} kg<br>`;
+                output += `</p><p class="total">Total weight: ${totalWeight.toFixed(2)} kg<br>`;
                 output += `Total cost: £${totalCost.toFixed(2)}</p>`;
                 document.getElementById('output').innerHTML = output;
             }
