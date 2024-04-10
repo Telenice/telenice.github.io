@@ -55,23 +55,33 @@
     <h1>Coke Calculator</h1>
     <div class="calculator-container">
         <div class="button-container">
-            <button id="stage1">Stage 1</button>
-            <button id="stage2">Stage 2</button>
-            <button id="stage3">Stage 3</button>
+            <button id="stage1rep">Stage 1 - Rep</button>
+            <button id="stage1pure">Stage 1 - Pure</button>
+            <button id="stage2rep">Stage 2 - Rep</button>
+            <button id="stage2pure">Stage 2 - Pure</button>
+            <button id="stage3rep">Stage 3 - Rep</button>
+            <button id="stage3pure">Stage 3 - Pure</button>
         </div>
     </div>
 
     <script>
-        document.getElementById('stage1').addEventListener('click', function() {
-            window.location.href = 'stage1.html';
+        document.getElementById('stage1rep').addEventListener('click', function() {
+            window.location.href = 'stage1rep.html';
         });
-
-        document.getElementById('stage2').addEventListener('click', function() {
-            window.location.href = 'stage2.html';
+        document.getElementById('stage1pure').addEventListener('click', function() {
+            window.location.href = 'stage1pure.html';
         });
-
-        document.getElementById('stage3').addEventListener('click', function() {
-            window.location.href = 'stage3.html';
+        document.getElementById('stage2rep').addEventListener('click', function() {
+            window.location.href = 'stage2rep.html';
+        });
+        document.getElementById('stage2pure').addEventListener('click', function() {
+            window.location.href = 'stage2pure.html';
+        });
+        document.getElementById('stage3rep').addEventListener('click', function() {
+            window.location.href = 'stage3rep.html';
+        });
+        document.getElementById('stage3pure').addEventListener('click', function() {
+            window.location.href = 'stage3pure.html';
         });
     </script>
 </body>

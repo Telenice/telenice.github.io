@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Stage 2 Calculator - 1:1 ratio</title>
+    <title>Stage 2 Calculator - 3:1 ratio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -78,10 +78,10 @@
     </style>
 </head>
 <body>
-    <h1>Stage 2 Calculator - 1:1 ratio</h1>
+    <h1>Stage 2 Calculator - 3:1 ratio</h1>
     <div class="input-container">
         <label for="cocainePaste">Enter the number of cocaine leaf paste:</label>
-        <input type="number" id="cocainePaste" name="cocainePaste" min="5" step="5">
+        <input type="number" id="cocainePaste" name="cocainePaste" min="1" step="1">
     </div>
     <button id="calculator">Calculate</button>
     <div id="output"></div>
@@ -93,7 +93,7 @@
     <script>
         const items = {
             "Cocaine Leaf Paste": { "ratio": 1, "weight": 0.25, "price": 0 },
-            "Cement": { "ratio": 1, "weight": 0.25, "price": 15 },
+            "Cement": { "ratio": 3, "weight": 0.25, "price": 15 },
             "Jerry Can": { "ratio": 1, "weight": 2, "price": 250 },
             "Thionyl Chloride": { "ratio": 2, "weight": 0.6, "price": 10 },
             "Plant Fertiliser": { "ratio": 2, "weight": 1, "price": 10 },
