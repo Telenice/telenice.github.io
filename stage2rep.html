@@ -2,80 +2,7 @@
 <html>
 <head>
     <title>Stage 2 Calculator - 1:1 ratio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-            color: #333;
-        }
-
-        .input-container {
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-        }
-
-        input[type="number"] {
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #51c28b;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        button:hover {
-            background-color: #3f9169;
-        }
-
-        #output {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #output p {
-            margin: 0;
-            padding: 0;
-        }
-
-        #output .total {
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        .return-button {
-            text-align: center;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="calculate.css">
 </head>
 <body>
     <h1>Stage 2 Calculator - 1:1 ratio</h1>
@@ -107,21 +34,25 @@
 
         function calculate() {
             const cocainePaste = document.getElementById('cocainePaste').value;
+            if (cocainePaste < 1) {
+                alert("Invalid input. Please enter a number greater than or equal to 1.");
+            } else {
                 let output = '';
                 let totalWeight = 0;
                 let totalCost = 0;
                 for (const [item, data] of Object.entries(items)) {
-                    const quantity = data.ratio * (cocainePaste * 1);
+                    const quantity = data.ratio * cocainePaste;
                     const weight = quantity * data.weight;
                     const cost = quantity * data.price;
                     totalWeight += weight;
                     totalCost += cost;
                     output += `${item}: ${quantity} items, ${weight.toFixed(2)} kg, £${cost.toFixed(2)}<br>`;
                 }
-                output += `</p><p class="total">Total weight: ${totalWeight.toFixed(2)} kg<br>`;
+                output += `<p class="total">Total weight: ${totalWeight.toFixed(2)} kg<br>`;
                 output += `Total cost: £${totalCost.toFixed(2)}</p>`;
                 document.getElementById('output').innerHTML = output;
             }
+        }
     </script>
 </body>
 </html>
